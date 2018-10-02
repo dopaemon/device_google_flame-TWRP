@@ -5,7 +5,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := device/google/flame
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
 
 # API
 BOARD_SHIPPING_API_LEVEL := 31
