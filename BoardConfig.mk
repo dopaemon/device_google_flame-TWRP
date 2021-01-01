@@ -118,3 +118,7 @@ TW_INCLUDE_NTFS_3G := true
 TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_NO_SCREEN_BLANK := true
 TW_FRAMERATE := 60
+
+# Debug flags
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
