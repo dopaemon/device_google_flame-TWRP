@@ -6,9 +6,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_flame.mk
+    $(LOCAL_DIR)/twrp_flame.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_flame-user \
-    omni_flame-userdebug \
-    omni_flame-eng
+    twrp_flame-eng

@@ -71,3 +71,46 @@ PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock \
     android.hardware.fastboot@1.0-impl-mock.recovery
+
+# TWRP
+PRODUCT_COPY_FILES += \
+    device/google/coral/prebuilts/vendor/etc/vintf/manifest.xml:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/etc/vintf/manifest.xml \
+    device/google/coral/recovery/root/init.recovery.usb.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.usb.rc \
+    device/google/coral/prebuilts/system/etc/twrp.flags:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/twrp.flags \
+    device/google/coral/prebuilts/system/etc/vintf/compatibility_matrix.3.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.3.xml \
+    device/google/coral/prebuilts/system/etc/vintf/compatibility_matrix.4.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.4.xml \
+    device/google/coral/prebuilts/system/etc/vintf/compatibility_matrix.5.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.5.xml \
+    device/google/coral/prebuilts/system/etc/vintf/compatibility_matrix.6.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.6.xml \
+    device/google/coral/prebuilts/system/etc/vintf/compatibility_matrix.device.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.device.xml \
+    device/google/coral/prebuilts/system/etc/vintf/manifest.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/manifest.xml
+
+# Qcom Decryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe \
+    qseecomd.recovery \
+    android.hardware.gatekeeper@1.0-service-qti.recovery \
+    android.hardware.keymaster@4.1-service.citadel.recovery \
+    android.hardware.keymaster@4.0-service-qti.recovery \
+    android.hardware.weaver@1.0-service.citadel.recovery \
+    citadeld.recovery \
+    android.hardware.authsecret@1.0-impl.nos.recovery \
+    android.hardware.keymaster@4.1-impl.nos.recovery \
+    android.hardware.oemlock@1.0-impl.nos.recovery \
+    android.hardware.weaver@1.0-impl.nos.recovery \
+    libdiag.recovery \
+    libdrmfs.recovery \
+    libkeymasterdeviceutils.recovery \
+    libnos_citadeld_proxy.recovery \
+    libprotobuf-cpp-full-3.9.1.recovery \
+    libprotobuf-cpp-lite-3.9.1.recovery \
+    libqcbor.recovery \
+    libQSEEComAPI.recovery \
+    libqtikeymaster4.recovery \
+    librpmb.recovery \
+    libspcom.recovery \
+    libssd.recovery \
+    nos_app_avb.recovery \
+    pixelatoms-cpp.recovery \
+    libion.recovery \
+    libkeymasterutils.recovery
