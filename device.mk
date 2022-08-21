@@ -68,3 +68,46 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bootimage.build.date.utc=0 \
     ro.build.date.utc=0
+
+# TWRP
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/recovery/root/vendor/etc/vintf/manifest.xml:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/etc/vintf/manifest.xml \
+    $(DEVICE_PATH)/recovery/root/init.recovery.usb.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.usb.rc \
+    $(DEVICE_PATH)/recovery/root/system/etc/twrp.flags:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/twrp.flags \
+    $(DEVICE_PATH)/recovery/root/system/etc/vintf/compatibility_matrix.3.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.3.xml \
+    $(DEVICE_PATH)/recovery/root/system/etc/vintf/compatibility_matrix.4.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.4.xml \
+    $(DEVICE_PATH)/recovery/root/system/etc/vintf/compatibility_matrix.5.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.5.xml \
+    $(DEVICE_PATH)/recovery/root/system/etc/vintf/compatibility_matrix.6.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.6.xml \
+    $(DEVICE_PATH)/recovery/root/system/etc/vintf/compatibility_matrix.device.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/compatibility_matrix.device.xml \
+    $(DEVICE_PATH)/recovery/root/system/etc/vintf/manifest.xml:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/vintf/manifest.xml
+
+# Qcom Decryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe \
+    qseecomd.recovery \
+    android.hardware.gatekeeper@1.0-service-qti.recovery \
+    android.hardware.keymaster@4.1-service.citadel.recovery \
+    android.hardware.keymaster@4.0-service-qti.recovery \
+    android.hardware.weaver@1.0-service.citadel.recovery \
+    citadeld.recovery \
+    android.hardware.authsecret@1.0-impl.nos.recovery \
+    android.hardware.keymaster@4.1-impl.nos.recovery \
+    android.hardware.oemlock@1.0-impl.nos.recovery \
+    android.hardware.weaver@1.0-impl.nos.recovery \
+    libdiag.recovery \
+    libdrmfs.recovery \
+    libkeymasterdeviceutils.recovery \
+    libnos_citadeld_proxy.recovery \
+    libprotobuf-cpp-full-3.9.1.recovery \
+    libprotobuf-cpp-lite-3.9.1.recovery \
+    libqcbor.recovery \
+    libQSEEComAPI.recovery \
+    libqtikeymaster4.recovery \
+    librpmb.recovery \
+    libspcom.recovery \
+    libssd.recovery \
+    nos_app_avb.recovery \
+    pixelatoms-cpp.recovery \
+    libion.recovery \
+    libkeymasterutils.recovery

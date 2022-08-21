@@ -50,6 +50,33 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hiphi
 TARGET_RECOVERY_DEVICE_MODULES := libinit_hiphi
 
 # Kernel
+BOARD_KERNEL_IMAGE_NAME := Image.lz4
+KERNEL_LD := LD=ld.lld
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CONFIG := floral_defconfig
+TARGET_KERNEL_SOURCE := kernel/google/msm-4.14
+TARGET_NEEDS_DTBOIMAGE := true
+BUILD_BROKEN_DUP_RULES := true
+
+BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
+BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += service_locator.enable=1
+BOARD_KERNEL_CMDLINE += androidboot.memcg=1 cgroup.memory=nokmem
+BOARD_KERNEL_CMDLINE += usbcore.autosuspend=7
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3 swiotlb=2048
+BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
+BOARD_KERNEL_CMDLINE += loop.max_part=7 twrpfastboot=1
+
+BOARD_KERNEL_BASE        := 0x00000000
+BOARD_KERNEL_PAGESIZE    := 4096
+
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_BOOT_HEADER_VERSION := 2
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+TARGET_KERNEL_ADDITIONAL_FLAGS := DTC=$(shell pwd)/prebuilts/tools-lineage/$(HOST_OS)-x86/dtc/dtc
 
 # Kernel - prebuilt
 # TARGET_FORCE_PREBUILT_KERNEL := true
@@ -61,6 +88,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG :=
 endif
 
 # Partitions
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
@@ -133,3 +161,18 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 # Debug flags
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/system/bin/strace
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/system/lib64/android.hardware.authsecret@1.0.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/system/lib64/android.hardware.oemlock@1.0.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/libnos.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/libnosprotos.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/pixelatoms-cpp.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/libnos_datagram_citadel.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/libnos_client_citadel.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/nos_app_avb.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/nos_app_keymaster.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib64/nos_app_weaver.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/system/lib64/pixelpowerstats_provider_aidl_interface-cpp.so
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(OUT_DIR)/target/product/$(PRODUCT_HARDWARE)/vendor/lib/hw/bootctrl.msmnile.so
