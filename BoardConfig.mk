@@ -44,6 +44,10 @@ TARGET_NO_BOOTLOADER := true
 # Display
 TARGET_SCREEN_DENSITY := 440
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hiphi
+TARGET_RECOVERY_DEVICE_MODULES := libinit_hiphi
+
 # Kernel
 
 # Kernel - prebuilt
