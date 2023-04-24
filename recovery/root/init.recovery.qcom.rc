@@ -38,6 +38,9 @@ on init
     write /sys/module/msm_poweroff/parameters/warm_reset 1
     # Enable thermal mitigation
     write /sys/devices/virtual/thermal/tz-by-name/backup-charge/mode enabled
+    # Load ADSP firmware for PMIC
+    start runatboot
+    wait /sys/class/power_supply/battery
 
 on post-fs
     start boot-hal-1-2
@@ -46,6 +49,13 @@ on boot
     start health-hal-2-1
 
 service set_permissive /system/bin/set_permissive.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service runatboot /system/bin/runatboot.sh
     user root
     group root
     disabled
