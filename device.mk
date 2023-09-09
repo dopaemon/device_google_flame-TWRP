@@ -114,3 +114,8 @@ PRODUCT_PACKAGES += \
     pixelatoms-cpp.recovery \
     libion.recovery \
     libkeymasterutils.recovery
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/qcom-caf/bootctrl

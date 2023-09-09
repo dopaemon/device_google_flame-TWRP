@@ -9,14 +9,14 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit some common twrp stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from flame device
 $(call inherit-product, device/google/flame/device.mk)
 
 PRODUCT_DEVICE := flame
-PRODUCT_NAME := omni_flame
+PRODUCT_NAME := twrp_flame
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 4
 PRODUCT_MANUFACTURER := google
