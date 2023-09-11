@@ -6,6 +6,7 @@
 #
 
 DEVICE_PATH := device/google/flame
+LOCAL_PATH := device/google/flame
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true

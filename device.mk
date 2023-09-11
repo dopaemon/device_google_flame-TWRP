@@ -5,6 +5,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Device path
+DEVICE_PATH := device/google/flame
+LOCAL_PATH := device/google/flame
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
