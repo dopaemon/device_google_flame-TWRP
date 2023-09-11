@@ -9,4 +9,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_flame.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_flame-eng
+    twrp_flame-eng
